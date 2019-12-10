@@ -1,39 +1,39 @@
 import { ADD_LIST, ADD_CARD } from "../Actions";
 const initialState = [
   {
-    id: 1,
+    id: `L-${1}`,
     title: "ToDo",
     cards: [
       {
-        id: 1,
+        id: `C-${10}`,
         title: "Creating a Web Page"
       },
       {
-        id: 2,
+        id: `C-${11}`,
         title: "Adding Style"
       }
     ]
   },
   {
-    id: 2,
+    id: `L-${2}`,
     title: "Doing",
     cards: [
       {
-        id: 1,
+        id: `C-${21}`,
         title: "Creating a Web Page"
       },
       {
-        id: 2,
+        id: `C-${22}`,
         title: "Adding Style"
       },
       {
-        id: 3,
+        id: `C-${23}`,
         title: "Adding JavaScript"
       }
     ]
   },
   {
-    id: 3,
+    id: `L-${3}`,
     title: "Done",
     cards: []
   }

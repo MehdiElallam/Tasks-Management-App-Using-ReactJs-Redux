@@ -1,16 +1,27 @@
 import React from "react";
-import TrelloCart from "./TrelloCart";
+import Icon from "@material-ui/core/Icon";
+import { Droppable } from "react-beautiful-dnd";
+import TrelloCard from "./TrelloCard";
 import TrelloActionButton from "./TrelloActionButton";
 
 const TrelloList = ({ listID, title, cards }) => {
   return (
-    <div style={styles.container}>
-      <h3 style={styles.title}>{title}</h3>
-      {cards.map(card => (
-        <TrelloCart key={card.id} card={card} />
-      ))}
-      <TrelloActionButton listID={listID} />
-    </div>
+    <Droppable droppableId={String(listID)}>
+      {provided => (
+        <div
+          {...provided.droppableProps}
+          ref={provided.innerRef}
+          style={styles.container}
+        >
+          <h3 style={styles.title}>{title}</h3>
+          {cards.map(card => (
+            <TrelloCard id={card.id} key={card.id} card={card} />
+          ))}
+          <TrelloActionButton listID={listID} />
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
   );
 };
 
